@@ -5,11 +5,31 @@ public abstract class Personaje {
     protected int fuerza;
     protected double vitalidad;
 
-    public Personaje(String nombre, String raza, int fuerza, double vitalidad) {
-        this.nombre   = nombre;
-        this.raza     = raza;
-        this.fuerza   = fuerza;
+    public Personaje(String nombre,
+                     String raza,
+                     int fuerza,
+                     double vitalidad) {
+
+        this.nombre = nombre;
+        this.raza = raza;
+        this.fuerza = fuerza;
         this.vitalidad = vitalidad;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getRaza() {
+        return raza;
+    }
+
+    public int getFuerza() {
+        return fuerza;
+    }
+
+    public double getVitalidad() {
+        return vitalidad;
     }
 
     public void sanacion() {
@@ -17,10 +37,11 @@ public abstract class Personaje {
     }
 
     public void mostrarPersonaje() {
-        System.out.println("Se ha creado un personaje con los siguientes valores: ");
-        System.out.println("Nombre: "    + nombre);
-        System.out.println("Raza: "      + raza);
-        System.out.println("Fuerza: "    + fuerza);
+
+        System.out.println("Se ha creado un personaje con los siguientes valores:");
+        System.out.println("Nombre: " + nombre);
+        System.out.println("Raza: " + raza);
+        System.out.println("Fuerza: " + fuerza);
         System.out.println("Vitalidad: " + vitalidad);
         System.out.println("--------------------------------------------");
     }
@@ -30,14 +51,20 @@ public abstract class Personaje {
     }
 
     public void verificarOponentes(Personaje oponente) {
+
         if (this.vitalidad <= 0) {
-            System.out.println(this.nombre   + " ha muerto");
+
+            System.out.println(this.nombre + " ha muerto");
             System.out.println(oponente.nombre + " es el vencedor");
-        } else if (oponente.vitalidad <= 0) {
+        }
+        else if (oponente.vitalidad <= 0) {
+
             System.out.println(oponente.nombre + " ha muerto");
-            System.out.println(this.nombre   + " es el vencedor");
-        } else {
-            System.out.println("la lucha sigue");
+            System.out.println(this.nombre + " es el vencedor");
+        }
+        else {
+
+            System.out.println("La lucha sigue");
         }
     }
 }
