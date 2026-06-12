@@ -1,47 +1,28 @@
-public class Guerrero extends Personaje
-  {
-protected String arma;
+public abstract class Guerrero extends Personaje {
 
- public Personaje(String nombre, String raza, int fuerza, double vitalidad) 
-{
-super(nombre,raza,fuerza,vitalidad);  
-this.arma=arma;
-}
-public String getArma(){
-  retunr arma;
-}
-public void setArma(String arma){
-  this.arma=arma;
-} 
+    protected String arma;
 
-@override      
-public String atacar(int fuerza, String oponente) {
-return "Atacando a " + oponente + " con fuerza " + fuerza;
+    public Guerrero(String nombre, String raza,
+                    int fuerza, double vitalidad) {
+        super(nombre, raza, fuerza, vitalidad);
     }
 
-public Personaje(String nombre, String raza, int fuerza, double vitalidad) {
-        this.nombre   = nombre;
-        this.raza     = raza;
-        this.fuerza   = fuerza;
-        this.vitalidad = vitalidad;
+    public String getArma() {
+        return arma;
     }
 
+    public void setArma(String arma) {
+        this.arma = arma;
+    }
+
+    @Override
     public void sanacion() {
         vitalidad += 4;
-    }
-
-    public void mostrarPersonaje() {
-        System.out.println("Se ha creado un personaje con los siguientes valores: ");
-        System.out.println("Nombre: "    + nombre);
-        System.out.println("Raza: "      + raza);
-        System.out.println("Fuerza: "    + fuerza);
-        System.out.println("Vitalidad: " + vitalidad);
+        System.out.println(nombre +
+                " ha usado un medicamento y recuperó 4 puntos de vitalidad");
+        System.out.println("Vitalidad actual: " + vitalidad);
         System.out.println("--------------------------------------------");
     }
 
-
-
-    
-
-
-  }
+    public abstract void atacar(Personaje oponente);
+}
